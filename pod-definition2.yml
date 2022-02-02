@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: posrgres-pod
+  labels:
+    author: kireeti
+    type: db
+spec:
+  containers:
+    - name: mydb
+      image: postgres
+      env:
+        - name: POSTGRES_PASSWORD
+          value: kireeti
+        - name: POSTGRES_USER
+          value: user
+        - name:.. POSTGRES_DB
+          value: mydb...
+#Create a pod defintion file to start nginx pod with a name webserver
+...

@@ -1,0 +1,20 @@
+---
+# create a redis pod and mount a volume to preserve the data
+apiVersion: v1
+kind: Pod
+metadata:
+ name: redis-pod
+ lables:
+  author: kireeti
+  type: volume
+spec:
+ containers:
+  - name: myredis
+    image: redis
+    volumeMounts: 
+     - name: redis-volume
+       mountPath: /data/redis
+ volumes:
+  - name: redis-volume
+    emptyDir:{}
+...

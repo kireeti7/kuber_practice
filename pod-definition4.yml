@@ -1,0 +1,15 @@
+---
+#Create a pod on that namespace.
+apiVersion: v1
+kind: Pod
+ matadata:
+  name: jdk-pod
+  namespace: test-ns
+  lables: 
+   author: kireeti
+ spec:
+  containers:
+   - name: ghost
+     image: ghost
+     
+...

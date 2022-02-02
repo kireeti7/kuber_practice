@@ -1,0 +1,27 @@
+---
+#Create a deployment file to run nginx:1.7.9 with 3 replicas
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: nginx-deployment
+ labels:
+  author: kireeti
+  type: proxyserver
+spec:
+ replicas: 3
+ selector:
+  matchLables:
+   type: proxyserver
+ template: 
+  matadata:
+   name: nginx-pod
+   labels:
+    type: proxyserver
+  spec: 
+   containers:
+    - name: nginx
+      image: nginx: 1.7.9
+      ports:
+       - containerPort: 8080
+         hostPort: 8888
+...

@@ -1,0 +1,26 @@
+#Create a replicaset file to start 4 tomcat replicas  and then perform scalling
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+ name: tomcat-rs
+ labels:
+  type: webserver
+spec:
+ replicas: 4
+ selector:
+  matchLables:
+   type: webserver
+ template: 
+  matadata:
+   name: tomcat-pod
+   labels:
+    type: webserver
+   spec:
+    containers:
+     -name: mywebserver
+      image: tomcat
+      ports:
+       - containerPort: 8080
+         hostPort: 9090
+...
